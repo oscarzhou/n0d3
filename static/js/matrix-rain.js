@@ -3,6 +3,10 @@
     const matrixContainer = document.getElementById('matrix-rain');
     if (!matrixContainer) return;
     
+    // Track occupied positions to prevent overlapping
+    const occupiedPositions = new Set();
+    const columnWidth = 20; // Approximate width of each column in pixels
+    
     // Matrix characters (mix of Japanese katakana, numbers, and symbols)
     const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?';
     
@@ -29,23 +33,41 @@
         column.style.zIndex = '5';
         column.style.position = 'fixed';
         
-        // Random position - avoid left 200px and right 200px areas
+        // Find a non-overlapping position
         const screenWidth = window.innerWidth;
         const leftMargin = 50;
         const rightMargin = 50;
         const availableWidth = screenWidth - leftMargin - rightMargin;
-        const randomPosition = leftMargin + Math.random() * availableWidth;
-        column.style.left = randomPosition + 'px';
+        const maxColumns = Math.floor(availableWidth / columnWidth);
+        
+        let position;
+        let attempts = 0;
+        const maxAttempts = 50; // Prevent infinite loop
+        
+        do {
+            const columnIndex = Math.floor(Math.random() * maxColumns);
+            position = leftMargin + (columnIndex * columnWidth);
+            attempts++;
+        } while (occupiedPositions.has(position) && attempts < maxAttempts);
+        
+        // If we couldn't find a free position, use a random one
+        if (attempts >= maxAttempts) {
+            position = leftMargin + Math.random() * availableWidth;
+        }
+        
+        // Mark this position as occupied
+        occupiedPositions.add(position);
+        column.style.left = position + 'px';
         
         // Faster animation duration - more dynamic
         const duration = 8 + Math.random() * 12; // 8-20 seconds
         column.style.animationDuration = duration + 's';
         column.style.animationTimingFunction = 'linear';
-        column.style.animationIterationCount = '2';
+        column.style.animationIterationCount = '1';
         column.style.animationFillMode = 'forwards';
         
-        // Random delay
-        column.style.animationDelay = Math.random() * 2 + 's';
+        // Minimal delay for immediate appearance
+        column.style.animationDelay = Math.random() * 0.5 + 's';
         
         // Fewer characters for better performance
         const charCount = Math.floor(Math.random() * 15) + 10; // 10-25 characters
@@ -57,17 +79,21 @@
         
         matrixContainer.appendChild(column);
         
-        // Remove column after animation completes
+        // Remove column after animation completes and free up position
         setTimeout(() => {
             if (column.parentNode) {
                 column.parentNode.removeChild(column);
+                // Free up the position for new columns
+                occupiedPositions.delete(position);
             }
         }, (duration + 5) * 1000);
     }
     
-    // Create initial columns - fewer for better performance
-    for (let i = 0; i < 12; i++) {
-        setTimeout(createMatrixColumn, i * 800);
+    // Create one column immediately, then create the rest with delays
+    createMatrixColumn(); // First column starts immediately
+    
+    for (let i = 1; i < 12; i++) {
+        setTimeout(createMatrixColumn, i * 100);
     }
     
     // Continuously create new columns (gentler rate)
