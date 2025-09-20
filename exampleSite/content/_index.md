@@ -1,17 +1,17 @@
 ---
-title: "Welcome to the Matrix"
+title: "Welcome to the n0d3"
 date: 2024-01-01T00:00:00Z
 draft: false
 ---
 
-# Welcome to HackerMatrix
+# Welcome to n0d3
 
-You've entered the digital realm where code meets reality. This is a personal blog theme inspired by the hacker/matrix aesthetic with a terminal green-on-black design.
+You've entered the digital realm where code meets reality. This is a personal blog theme inspired by the hacker/n0d3 aesthetic with a terminal green-on-black design.
 
 ## Features
 
 - **Terminal Aesthetic**: Green-on-black color scheme with monospace fonts
-- **Matrix Effects**: Subtle background animations and glowing text effects
+- **n0d3 Effects**: Subtle background animations and glowing text effects
 - **Responsive Design**: Works perfectly on desktop and mobile devices
 - **Clean Layout**: Minimalist design focused on content readability
 - **Hugo Integration**: Built specifically for Hugo static site generator
@@ -26,10 +26,10 @@ This theme is designed for personal blogs and technical writing. It provides:
 - Responsive design for all devices
 - Terminal-style UI elements
 
-## The Matrix Awaits
+## The n0d3 Awaits
 
-Dive into the code, explore the posts, and become part of the system. The matrix is everywhere - it's all around us, even now in this very room.
+Dive into the code, explore the posts, and become part of the system. The n0d3 is everywhere - it's all around us, even now in this very room.
 
 ---
 
-*"There is no spoon."* - The Matrix
+*"There is no spoon."* - The n0d3

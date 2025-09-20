@@ -1,12 +1,12 @@
 ---
-title: "Welcome to the Matrix"
+title: "Welcome to the n0d3"
 date: 2024-01-01T12:00:00Z
 draft: false
-tags: ["matrix", "welcome", "hacking"]
+tags: ["n0d3", "welcome", "hacking"]
 description: "Your first steps into the digital realm"
 ---
 
-# Welcome to the Matrix
+# Welcome to the n0d3
 
 You've taken the red pill. Welcome to the real world, where the boundaries between code and reality blur into a beautiful symphony of green text on black screens.
 
@@ -25,20 +25,20 @@ In this space, we explore the intersection of technology, creativity, and the hu
 
 ```bash
 #!/bin/bash
-# Welcome to the matrix
+# Welcome to the n0d3
 echo "Hello, World!"
 echo "You are now part of the system."
-echo "The matrix has you."
+echo "The n0d3 has you."
 ```
 
 ## The Journey Begins
 
-This is just the beginning. The matrix is vast, complex, and full of possibilities. Every post is a node in the network, every tag a connection, every reader a new participant in the digital ecosystem.
+This is just the beginning. The n0d3 is vast, complex, and full of possibilities. Every post is a node in the network, every tag a connection, every reader a new participant in the digital ecosystem.
 
 *Welcome to the real world.*
 
 ---
 
-**Tags**: matrix, welcome, hacking  
+**Tags**: n0d3, welcome, hacking  
 **Status**: Active  
 **Last Modified**: 2024-01-01
