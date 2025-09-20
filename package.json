@@ -1,0 +1,34 @@
+{
+  "name": "n0d3-hugo-theme",
+  "version": "1.0.0",
+  "description": "A hacker/matrix/terminal-style Hugo theme for personal blogs",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss -i assets/css/main.css -o static/css/main.css --minify",
+    "watch-css": "tailwindcss -i assets/css/main.css -o static/css/main.css --watch",
+    "dev": "hugo server -D",
+    "build": "hugo --minify"
+  },
+  "keywords": [
+    "hugo",
+    "theme",
+    "hacker",
+    "matrix",
+    "terminal",
+    "blog",
+    "tailwindcss"
+  ],
+  "author": "oscarzhou",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oscarzhou/n0d3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscarzhou/n0d3/issues"
+  },
+  "homepage": "https://github.com/oscarzhou/n0d3#readme"
+}

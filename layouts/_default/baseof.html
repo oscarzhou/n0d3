@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'matrix-green': '#00ff00',
+                        'matrix-dark-green': '#00cc00',
+                        'matrix-bright-green': '#00ff41',
+                        'terminal-black': '#000000',
+                        'terminal-dark-gray': '#0a0a0a',
+                        'terminal-gray': '#1a1a1a',
+                        'terminal-light-gray': '#2a2a2a',
+                        'terminal-text': '#00ff00',
+                        'terminal-muted': '#008800',
+                    },
+                    fontFamily: {
+                        'mono': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
+                        'terminal': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                    animation: {
+                        'cursor-blink': 'cursor-blink 1s infinite',
+                        'matrix-rain': 'matrix-rain 2s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        'cursor-blink': {
+                            '0%, 50%': { opacity: '1' },
+                            '51%, 100%': { opacity: '0' },
+                        },
+                        'matrix-rain': {
+                            '0%': { transform: 'translateY(-100vh)' },
+                            '100%': { transform: 'translateY(100vh)' },
+                        },
+                        'glow': {
+                            '0%': { textShadow: '0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00' },
+                            '100%': { textShadow: '0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        @import url('{{ "css/main.css" | relURL }}');
+    </style>
+    
+    <!-- RSS -->
+    {{ range .AlternativeOutputFormats -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+</head>
+<body class="bg-terminal-black text-terminal-text font-mono min-h-screen">
+    <!-- Matrix rain background effect -->
+    <div class="matrix-rain"></div>
+    
+    <!-- Header -->
+    {{ partial "header.html" . }}
+    
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Terminal cursor animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursorElements = document.querySelectorAll('.terminal-cursor');
+            cursorElements.forEach(element => {
+                element.style.animation = 'cursor-blink 1s infinite';
+            });
+        });
+        
+        // Matrix rain effect
+        function createMatrixRain() {
+            const rain = document.querySelector('.matrix-rain');
+            if (rain) {
+                const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+                const drops = [];
+                
+                for (let i = 0; i < 50; i++) {
+                    const drop = document.createElement('div');
+                    drop.style.position = 'absolute';
+                    drop.style.left = Math.random() * 100 + '%';
+                    drop.style.top = '-100px';
+                    drop.style.color = '#00ff00';
+                    drop.style.fontSize = '14px';
+                    drop.style.opacity = '0.1';
+                    drop.style.pointerEvents = 'none';
+                    drop.style.zIndex = '-1';
+                    
+                    let text = '';
+                    for (let j = 0; j < 20; j++) {
+                        text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                    }
+                    drop.innerHTML = text;
+                    
+                    rain.appendChild(drop);
+                    drops.push(drop);
+                }
+                
+                // Animate drops
+                setInterval(() => {
+                    drops.forEach(drop => {
+                        const currentTop = parseInt(drop.style.top);
+                        if (currentTop > window.innerHeight) {
+                            drop.style.top = '-100px';
+                            drop.style.left = Math.random() * 100 + '%';
+                        } else {
+                            drop.style.top = (currentTop + 2) + 'px';
+                        }
+                    });
+                }, 50);
+            }
+        }
+        
+        createMatrixRain();
+    </script>
+</body>
+</html>

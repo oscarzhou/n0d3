@@ -1,0 +1,27 @@
+<footer class="border-t border-matrix-green mt-16 pt-8 text-center text-sm text-terminal-muted">
+    <div class="terminal-window max-w-2xl mx-auto">
+        <div class="terminal-prompt mb-4">
+            <span class="text-matrix-bright-green">$</span> cat about.txt
+        </div>
+        
+        <div class="text-left space-y-2">
+            <p><span class="text-matrix-green">name:</span> {{ .Site.Params.author | default .Site.Title }}</p>
+            <p><span class="text-matrix-green">location:</span> {{ .Site.Params.location | default "Matrix" }}</p>
+            <p><span class="text-matrix-green">status:</span> {{ .Site.Params.status | default "Hacking" }}</p>
+            {{ if .Site.Params.email }}
+            <p><span class="text-matrix-green">email:</span> <a href="mailto:{{ .Site.Params.email }}" class="hacker-link">{{ .Site.Params.email }}</a></p>
+            {{ end }}
+            {{ if .Site.Params.github }}
+            <p><span class="text-matrix-green">github:</span> <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="hacker-link">{{ .Site.Params.github }}</a></p>
+            {{ end }}
+        </div>
+        
+        <div class="mt-4 pt-4 border-t border-matrix-green">
+            <p class="text-xs">
+                &copy; {{ now.Format "2006" }} {{ .Site.Params.author | default .Site.Title }} | 
+                Powered by <a href="https://gohugo.io" class="hacker-link">Hugo</a> | 
+                Theme: <a href="https://github.com/oscarzhou/n0d3" class="hacker-link">n0d3</a>
+            </p>
+        </div>
+    </div>
+</footer>

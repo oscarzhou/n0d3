@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="terminal-window text-center">
+    <div class="terminal-prompt mb-6">
+        <span class="text-matrix-bright-green">$</span> cat /dev/null
+    </div>
+    
+    <h1 class="text-6xl font-bold mb-4 matrix-text">404</h1>
+    <h2 class="text-2xl font-bold mb-6 text-matrix-green">File Not Found</h2>
+    
+    <div class="text-terminal-muted mb-8">
+        <p class="mb-4">The requested file does not exist in the matrix.</p>
+        <p class="text-sm">Error: No such file or directory</p>
+    </div>
+    
+    <div class="space-y-4">
+        <a href="{{ .Site.BaseURL }}" class="hacker-link hover:text-glow block">
+            <span class="terminal-prompt">cd /</span>
+        </a>
+        
+        <a href="{{ "posts" | relURL }}" class="hacker-link hover:text-glow block">
+            <span class="terminal-prompt">ls posts/</span>
+        </a>
+        
+        <a href="javascript:history.back()" class="hacker-link hover:text-glow block">
+            <span class="terminal-prompt">cd ..</span>
+        </a>
+    </div>
+    
+    <div class="mt-8 text-xs text-terminal-muted">
+        <p>Matrix Status: <span class="text-matrix-green">Online</span></p>
+        <p>System Time: {{ now.Format "2006-01-02 15:04:05" }}</p>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,18 @@
+name = "n0d3"
+license = "MIT"
+licenselink = "https://github.com/oscarzhou/n0d3/blob/main/LICENSE"
+description = "A hacker/matrix/terminal-style Hugo theme for personal blogs with green-on-black aesthetics"
+homepage = "https://github.com/oscarzhou/n0d3"
+tags = ["blog", "hacker", "terminal", "matrix", "dark", "minimal"]
+features = ["blog", "dark-mode", "responsive", "terminal-style"]
+min_version = "0.100.0"
+
+[author]
+  name = "oscarzhou"
+  homepage = "https://github.com/oscarzhou"
+
+# If porting an existing theme
+[original]
+  name = "n0d3"
+  homepage = "https://github.com/oscarzhou/n0d3"
+  repo = "https://github.com/oscarzhou/n0d3.git"

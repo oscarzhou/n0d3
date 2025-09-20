@@ -1,0 +1,52 @@
+{{ define "main" }}
+<div class="terminal-window mb-8">
+    <div class="terminal-prompt mb-4">
+        <span class="text-matrix-bright-green">$</span> find . -name "*.md" -exec grep -l "tags:" {} \;
+    </div>
+    
+    <h1 class="text-2xl font-bold mb-6 matrix-text">All Tags</h1>
+    
+    <div class="text-matrix-green text-sm mb-6">
+        {{ len .Pages }} {{ if eq (len .Pages) 1 }}tag{{ else }}tags{{ end }} found
+    </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {{ range .Pages }}
+    <div class="post-card">
+        <h2 class="text-lg font-bold mb-2">
+            <a href="{{ .Permalink }}" class="hacker-link hover:text-glow">
+                {{ .Title }}
+            </a>
+        </h2>
+        
+        <div class="text-sm text-terminal-muted">
+            {{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}
+        </div>
+        
+        <div class="mt-4 pt-4 border-t border-matrix-green">
+            <a href="{{ .Permalink }}" class="hacker-link text-sm hover:text-glow">
+                <span class="terminal-prompt">view posts</span>
+            </a>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+{{ if gt (len .Pages) 0 }}
+<div class="mt-8 text-center">
+    <div class="terminal-window max-w-md mx-auto">
+        <div class="terminal-prompt">
+            <span class="text-matrix-bright-green">$</span> echo "{{ len .Pages }} tags found"
+        </div>
+    </div>
+</div>
+{{ else }}
+<div class="terminal-window text-center">
+    <div class="terminal-prompt">
+        <span class="text-matrix-bright-green">$</span> echo "No tags found"
+    </div>
+    <p class="text-terminal-muted mt-4">The matrix is empty... for now.</p>
+</div>
+{{ end }}
+{{ end }}

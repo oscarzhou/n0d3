@@ -1,0 +1,87 @@
+{{ define "main" }}
+<div class="terminal-window mb-8">
+    <div class="terminal-prompt mb-4">
+        <span class="text-matrix-bright-green">$</span> ls -la posts/
+    </div>
+    
+    <div class="text-matrix-green text-sm">
+        {{ if .Title }}
+        <h1 class="text-2xl font-bold mb-6 matrix-text">{{ .Title }}</h1>
+        {{ end }}
+        
+        {{ if .Content }}
+        <div class="prose prose-invert max-w-none mb-8">
+            {{ .Content }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<div class="space-y-6">
+    {{ range .Pages }}
+    <article class="post-card">
+        <header class="mb-4">
+            <h2 class="text-xl font-bold mb-2">
+                <a href="{{ .Permalink }}" class="hacker-link hover:text-glow">
+                    {{ .Title }}
+                </a>
+            </h2>
+            
+            <div class="flex flex-wrap items-center gap-4 text-sm text-terminal-muted">
+                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="flex items-center">
+                    <span class="text-matrix-green mr-1">[</span>
+                    {{ .Date.Format "2006-01-02" }}
+                    <span class="text-matrix-green ml-1">]</span>
+                </time>
+                
+                {{ if .Params.tags }}
+                <div class="flex items-center gap-2">
+                    <span class="text-matrix-green">tags:</span>
+                    {{ range .Params.tags }}
+                    <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="hacker-link text-xs">
+                        {{ . }}
+                    </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if .ReadingTime }}
+                <span class="text-terminal-muted">
+                    <span class="text-matrix-green">read:</span> {{ .ReadingTime }} min
+                </span>
+                {{ end }}
+            </div>
+        </header>
+        
+        {{ if .Summary }}
+        <div class="prose prose-invert max-w-none text-sm">
+            {{ .Summary }}
+        </div>
+        {{ end }}
+        
+        <footer class="mt-4 pt-4 border-t border-matrix-green">
+            <a href="{{ .Permalink }}" class="hacker-link text-sm hover:text-glow">
+                <span class="terminal-prompt">read more</span>
+            </a>
+        </footer>
+    </article>
+    {{ end }}
+</div>
+
+{{ if gt (len .Pages) 0 }}
+<div class="mt-8 text-center">
+    <div class="terminal-window max-w-md mx-auto">
+        <div class="terminal-prompt">
+            <span class="text-matrix-bright-green">$</span> echo "{{ len .Pages }} posts found"
+        </div>
+    </div>
+</div>
+{{ else }}
+<div class="terminal-window text-center">
+    <div class="terminal-prompt">
+        <span class="text-matrix-bright-green">$</span> echo "No posts found"
+    </div>
+    <p class="text-terminal-muted mt-4">The matrix is empty... for now.</p>
+</div>
+{{ end }}
+{{ end }}
