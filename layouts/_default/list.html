@@ -38,7 +38,7 @@
                 <div class="flex items-center gap-2">
                     <span class="text-matrix-green">tags:</span>
                     {{ range .Params.tags }}
-                    <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="hacker-link text-xs">
+                    <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="hacker-link text-xs hover:text-glow hover:underline">
                         {{ . }}
                     </a>
                     {{ end }}

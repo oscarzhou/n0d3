@@ -1,10 +1,10 @@
 {{ define "main" }}
-<div class="mb-6">
-    <div class="terminal-prompt mb-2">
+<div class="mb-8">
+    <div class="terminal-prompt mb-3">
         <span class="text-matrix-bright-green">$</span> whoami
     </div>
     
-    <div class="text-matrix-green text-lg">
+    <div class="text-matrix-green text-xl leading-relaxed">
         {{ if .Site.Params.welcome_message }}
         {{ .Site.Params.welcome_message }}
         {{ else }}
@@ -13,22 +13,22 @@
     </div>
 </div>
 
-<div class="terminal-prompt mb-6">
+<div class="terminal-prompt mb-8">
     $
 </div>
 
 {{ if .Content }}
-<div class="mb-6">
-    <div class="terminal-prompt mb-2">
+<div class="mb-8">
+    <div class="terminal-prompt mb-3">
         <span class="text-matrix-bright-green">$</span> cat README.md
     </div>
     
-    <div class="prose prose-invert max-w-none">
+    <div class="prose prose-invert max-w-none text-lg leading-relaxed">
         {{ .Content }}
     </div>
 </div>
 
-<div class="terminal-prompt mb-6">
+<div class="terminal-prompt mb-8">
     $
 </div>
 {{ end }}
@@ -36,22 +36,22 @@
 <!-- Recent Posts -->
 {{ $recentPosts := where .Site.RegularPages "Type" "posts" | first 5 }}
 {{ if $recentPosts }}
-<div class="mb-6">
-    <div class="terminal-prompt mb-2">
+<div class="mb-8">
+    <div class="terminal-prompt mb-3">
         <span class="text-matrix-bright-green">$</span> ls -lt posts/ | head -5
     </div>
     
-    <div class="space-y-2">
+    <div class="space-y-3">
         {{ range $recentPosts }}
-        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-            <time class="text-terminal-muted text-sm whitespace-nowrap">
+        <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+            <time class="text-terminal-muted text-base whitespace-nowrap">
                 {{ .Date.Format "2006-01-02" }}
             </time>
-            <a href="{{ .Permalink }}" class="hacker-link flex-1">
+            <a href="{{ .Permalink }}" class="hacker-link flex-1 text-lg hover:underline hover:text-glow">
                 {{ .Title }}
             </a>
             {{ if .ReadingTime }}
-            <span class="text-terminal-muted text-sm">
+            <span class="text-terminal-muted text-base">
                 {{ .ReadingTime }}min
             </span>
             {{ end }}
@@ -59,14 +59,14 @@
         {{ end }}
     </div>
     
-    <div class="mt-4">
-        <a href="{{ "posts" | relURL }}" class="hacker-link">
-            <span class="terminal-prompt">view all posts</span>
+    <div class="mt-6">
+        <a href="{{ "posts" | relURL }}" class="hacker-link hover:underline hover:text-glow">
+            <span class="terminal-prompt text-lg">view all posts</span>
         </a>
     </div>
 </div>
 
-<div class="terminal-prompt mb-6">
+<div class="terminal-prompt mb-8">
     $
 </div>
 {{ end }}

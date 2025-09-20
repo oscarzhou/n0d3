@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,8 +29,12 @@
                         'terminal-muted': '#008800',
                     },
                     fontFamily: {
-                        'mono': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
-                        'terminal': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
+                        'sans': ['JetBrains Mono', 'monospace'],
+                        'system': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', 'monospace'],
+                        'terminal': ['JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', 'monospace'],
+                        'jozsika': ['Jozsika'],
+                        'jetbrains': ['JetBrains Mono', 'monospace'],
                     },
                     animation: {
                         'cursor-blink': 'cursor-blink 1s infinite',
@@ -66,7 +70,7 @@
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
 </head>
-<body class="bg-terminal-black text-terminal-text font-mono min-h-screen">
+<body class="bg-terminal-black text-terminal-text font-jetbrains min-h-screen">
     <!-- Header -->
     <header class="px-6 pt-6">
         {{ partial "header.html" . }}
