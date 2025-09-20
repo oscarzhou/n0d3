@@ -30,7 +30,7 @@
         column.style.color = '#00ff00';
         column.style.textShadow = '0 0 5px #00ff00';
         column.style.opacity = '0.8';
-        column.style.zIndex = '5';
+        column.style.zIndex = '1000';
         column.style.position = 'fixed';
         
         // Find a non-overlapping position

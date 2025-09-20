@@ -85,7 +85,7 @@
   text-shadow: 0 0 5px #00ff00;
   animation: matrix-fall linear infinite;
   opacity: 0.8;
-  z-index: 5;
+  z-index: 1000;
 }
 
 .matrix-column.small {
