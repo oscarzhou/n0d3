@@ -13,13 +13,13 @@
         
         <nav class="flex flex-col gap-3 text-base text-right">
             {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}" class="hacker-link transition-all duration-300">
+            <a href="{{ .URL }}" class="hacker-link transition-all duration-300 hover:text-glow block">
                 {{ .Name | upper }}
             </a>
             {{ end }}
             
             {{ if .Site.Params.github }}
-            <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="hacker-link transition-all duration-300">
+            <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="hacker-link transition-all duration-300 hover:text-glow block">
                 GITHUB
             </a>
             {{ end }}

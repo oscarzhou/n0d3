@@ -1,34 +1,57 @@
 {{ define "main" }}
-<div class="terminal-window text-center">
-    <div class="terminal-prompt mb-6">
+<!-- Matrix Rain Background -->
+<div id="matrix-rain" class="fixed inset-0 pointer-events-none" style="z-index: 1;"></div>
+
+<div class="mb-6">
+    <div class="terminal-prompt mb-2">
         <span class="text-matrix-bright-green">$</span> cat /dev/null
     </div>
     
     <h1 class="text-6xl font-bold mb-4 matrix-text">404</h1>
     <h2 class="text-2xl font-bold mb-6 text-matrix-green">File Not Found</h2>
+</div>
+
+<div class="mb-6">
+    <div class="terminal-prompt mb-2">
+        <span class="text-matrix-bright-green">$</span> error_report
+    </div>
     
-    <div class="text-terminal-muted mb-8">
+    <div class="text-terminal-muted">
         <p class="mb-4">The requested file does not exist in the matrix.</p>
         <p class="text-sm">Error: No such file or directory</p>
     </div>
+</div>
+
+<div class="mb-6">
+    <div class="terminal-prompt mb-2">
+        <span class="text-matrix-bright-green">$</span> help
+    </div>
     
-    <div class="space-y-4">
-        <a href="{{ .Site.BaseURL }}" class="hacker-link hover:text-glow block">
+    <div class="space-y-2">
+        <a href="{{ .Site.BaseURL }}" class="hacker-link transition-all duration-300 hover:text-glow block">
             <span class="terminal-prompt">cd /</span>
         </a>
         
-        <a href="{{ "posts" | relURL }}" class="hacker-link hover:text-glow block">
+        <a href="{{ "posts" | relURL }}" class="hacker-link transition-all duration-300 hover:text-glow block">
             <span class="terminal-prompt">ls posts/</span>
         </a>
         
-        <a href="javascript:history.back()" class="hacker-link hover:text-glow block">
+        <a href="javascript:history.back()" class="hacker-link transition-all duration-300 hover:text-glow block">
             <span class="terminal-prompt">cd ..</span>
         </a>
     </div>
+</div>
+
+<div class="mb-6">
+    <div class="terminal-prompt mb-2">
+        <span class="text-matrix-bright-green">$</span> systemctl status matrix
+    </div>
     
-    <div class="mt-8 text-xs text-terminal-muted">
+    <div class="text-xs text-terminal-muted">
         <p>Matrix Status: <span class="text-matrix-green">Online</span></p>
         <p>System Time: {{ now.Format "2006-01-02 15:04:05" }}</p>
     </div>
 </div>
+
+<script src="{{ "js/matrix-rain.js" | relURL }}"></script>
 {{ end }}

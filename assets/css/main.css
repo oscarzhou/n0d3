@@ -9,7 +9,7 @@
   }
   
   body {
-    @apply bg-terminal-black text-terminal-text;
+    @apply bg-terminal-gray text-terminal-text;
   }
 }
 
@@ -66,14 +66,70 @@
   }
   
   .bg-matrix {
-    background: linear-gradient(45deg, #000000 0%, #001100 50%, #000000 100%);
+    background: linear-gradient(45deg, #1a1a1a 0%, #001100 50%, #1a1a1a 100%);
   }
 }
 
-/* Matrix rain effect - disabled for clean terminal look */
-.matrix-rain {
-  display: none;
+/* Matrix rain effect for 404 page */
+#matrix-rain {
+  overflow: hidden;
 }
+
+.matrix-column {
+  position: fixed;
+  top: -100%;
+  font-family: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 16px;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  animation: matrix-fall linear infinite;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.matrix-column.small {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.matrix-column.medium {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.matrix-column.large {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.matrix-column.xlarge {
+  font-size: 26px;
+  line-height: 26px;
+}
+
+.matrix-column:nth-child(odd) {
+  color: #008800;
+  text-shadow: 0 0 3px #008800;
+}
+
+.matrix-column:nth-child(3n) {
+  color: #00aa00;
+  text-shadow: 0 0 4px #00aa00;
+}
+
+@keyframes matrix-fall {
+  0% {
+    top: -100%;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Matrix rain speed variations - handled by JavaScript */
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
@@ -96,10 +152,10 @@
 /* Selection styling */
 ::selection {
   background: #333333;
-  color: #00ff00;
+  color: #ffffff;
 }
 
 ::-moz-selection {
   background: #333333;
-  color: #00ff00;
+  color: #ffffff;
 }
