@@ -23,14 +23,14 @@ module.exports = {
         'terminal': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {
-        'cursor-blink': 'cursor-blink 1s infinite',
+        'cursor-blink': 'cursor-blink 3s infinite',
         'matrix-rain': 'matrix-rain 2s linear infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
         'cursor-blink': {
-          '0%, 50%': { opacity: '1' },
-          '51%, 100%': { opacity: '0' },
+          '0%, 70%': { opacity: '1' },
+          '71%, 100%': { opacity: '0' },
         },
         'matrix-rain': {
           '0%': { transform: 'translateY(-100vh)' },

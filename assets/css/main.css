@@ -10,8 +10,6 @@
   
   body {
     @apply bg-terminal-black text-terminal-text;
-    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2300ff00" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-    background-attachment: fixed;
   }
 }
 
@@ -23,21 +21,15 @@
   
   .matrix-text {
     @apply text-matrix-green font-terminal;
-    text-shadow: 0 0 5px #00ff00;
   }
   
   .terminal-window {
-    @apply bg-terminal-dark-gray border border-matrix-green rounded-lg p-4 shadow-lg;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    @apply p-4;
   }
   
   .hacker-link {
     @apply text-matrix-green hover:text-matrix-bright-green transition-colors duration-200;
     text-decoration: none;
-  }
-  
-  .hacker-link:hover {
-    text-shadow: 0 0 10px #00ff00;
   }
   
   .post-card {
@@ -78,27 +70,9 @@
   }
 }
 
-/* Matrix rain effect */
+/* Matrix rain effect - disabled for clean terminal look */
 .matrix-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.1;
-}
-
-.matrix-rain::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  background: linear-gradient(transparent, #00ff00, transparent);
-  animation: matrix-rain 3s linear infinite;
+  display: none;
 }
 
 /* Scrollbar styling */
@@ -111,12 +85,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00ff00;
+  background: #333333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00ff41;
+  background: #555555;
 }
 
 /* Selection styling */

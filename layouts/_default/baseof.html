@@ -62,14 +62,13 @@
     {{ end -}}
 </head>
 <body class="bg-terminal-black text-terminal-text font-mono min-h-screen">
-    <!-- Matrix rain background effect -->
-    <div class="matrix-rain"></div>
-    
     <!-- Header -->
-    {{ partial "header.html" . }}
+    <header class="px-6 pt-6">
+        {{ partial "header.html" . }}
+    </header>
     
     <!-- Main content -->
-    <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <main class="px-6 py-4">
         {{ block "main" . }}{{ end }}
     </main>
     
@@ -86,50 +85,7 @@
             });
         });
         
-        // Matrix rain effect
-        function createMatrixRain() {
-            const rain = document.querySelector('.matrix-rain');
-            if (rain) {
-                const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-                const drops = [];
-                
-                for (let i = 0; i < 50; i++) {
-                    const drop = document.createElement('div');
-                    drop.style.position = 'absolute';
-                    drop.style.left = Math.random() * 100 + '%';
-                    drop.style.top = '-100px';
-                    drop.style.color = '#00ff00';
-                    drop.style.fontSize = '14px';
-                    drop.style.opacity = '0.1';
-                    drop.style.pointerEvents = 'none';
-                    drop.style.zIndex = '-1';
-                    
-                    let text = '';
-                    for (let j = 0; j < 20; j++) {
-                        text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
-                    }
-                    drop.innerHTML = text;
-                    
-                    rain.appendChild(drop);
-                    drops.push(drop);
-                }
-                
-                // Animate drops
-                setInterval(() => {
-                    drops.forEach(drop => {
-                        const currentTop = parseInt(drop.style.top);
-                        if (currentTop > window.innerHeight) {
-                            drop.style.top = '-100px';
-                            drop.style.left = Math.random() * 100 + '%';
-                        } else {
-                            drop.style.top = (currentTop + 2) + 'px';
-                        }
-                    });
-                }, 50);
-            }
-        }
-        
-        createMatrixRain();
+        // Matrix rain effect disabled for clean terminal look
     </script>
 </body>
 </html>
