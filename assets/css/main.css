@@ -5,7 +5,7 @@
 /* Custom hacker/matrix styles */
 @layer base {
   html {
-    font-family: 'Courier New', Monaco, Consolas, monospace;
+    font-family: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Consolas, 'Courier New', monospace;
   }
   
   body {
@@ -81,7 +81,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #1C1C1C;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -95,11 +95,11 @@
 
 /* Selection styling */
 ::selection {
-  background: #00ff00;
-  color: #000000;
+  background: #333333;
+  color: #00ff00;
 }
 
 ::-moz-selection {
-  background: #00ff00;
-  color: #000000;
+  background: #333333;
+  color: #00ff00;
 }

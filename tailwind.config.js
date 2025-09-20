@@ -11,7 +11,7 @@ module.exports = {
         'matrix-green': '#00ff00',
         'matrix-dark-green': '#00cc00',
         'matrix-bright-green': '#00ff41',
-        'terminal-black': '#000000',
+        'terminal-black': '#1C1C1C',
         'terminal-dark-gray': '#0a0a0a',
         'terminal-gray': '#1a1a1a',
         'terminal-light-gray': '#2a2a2a',
@@ -19,8 +19,8 @@ module.exports = {
         'terminal-muted': '#008800',
       },
       fontFamily: {
-        'mono': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
-        'terminal': ['Courier New', 'Monaco', 'Consolas', 'monospace'],
+        'mono': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', 'monospace'],
+        'terminal': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', 'monospace'],
       },
       animation: {
         'cursor-blink': 'cursor-blink 3s infinite',
