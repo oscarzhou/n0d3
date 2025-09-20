@@ -1,0 +1,61 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "n0d3 Blog"
+theme = "n0d3"
+
+# Site parameters
+[params]
+  description = "A personal blog in the Matrix style - where code meets reality"
+  author = "oscarzhou"
+  email = "hacker@matrix.local"
+  github = "https://github.com/oscarzhou"
+  location = "The Matrix"
+  status = "Hacking the Mainframe"
+  welcome_message = "Welcome to the Matrix. You are now part of the system."
+
+# Menu configuration
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 20
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 30
+
+# Build configuration
+[build]
+  writeStats = true
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Disable some features for cleaner output
+disableKinds = ["taxonomy", "term"]
+
+# Pagination
+paginate = 10
+paginatePath = "page"
