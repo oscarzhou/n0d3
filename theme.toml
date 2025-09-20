@@ -8,7 +8,7 @@ features = ["blog", "dark-mode", "responsive", "terminal-style"]
 min_version = "0.100.0"
 
 [author]
-  name = "oscarzhou"
+  name = "Oscar Zhou"
   homepage = "https://github.com/oscarzhou"
 
 # If porting an existing theme

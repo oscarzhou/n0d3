@@ -21,6 +21,10 @@ static/css/main.css
 *.swo
 *~
 
+# exampleSite
+exampleSite/themes/
+
+
 # OS generated files
 .DS_Store
 .DS_Store?

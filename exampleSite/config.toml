@@ -6,7 +6,7 @@ theme = "n0d3"
 # Site parameters
 [params]
   description = "A personal blog in the Matrix style - where code meets reality"
-  author = "oscarzhou"
+  author = "Oscar Zhou"
   email = "hacker@matrix.local"
   github = "https://github.com/oscarzhou"
   location = "The Matrix"
